@@ -12,9 +12,10 @@ on:
     - cron: '40 16 * * *'
 
 permissions:
+  actions: write # liskin/gh-workflow-keepalive@v1
   contents: read
-  pages: write
   id-token: write
+  pages: write
 
 concurrency:
   group: ci-${{ github.ref }}
@@ -47,3 +48,4 @@ jobs:
         if: github.ref == 'refs/heads/master'
         id: deployment
         uses: actions/deploy-pages@v4
+      - uses: liskin/gh-workflow-keepalive@v1
