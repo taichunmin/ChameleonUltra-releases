@@ -35,7 +35,7 @@ async function main (): Promise<void> {
       repo: 'ChameleonUltra',
     }))?.data
     // await writeFile('dist/releases.json', JSON.stringify(releases, null, 2))
-    for (const release of releases) {
+    for (const release of _.orderBy(releases, ['created_at'], ['desc'])) {
       const manifestRelease: any = { 
         assets: [],
         commit: release.target_commitish,

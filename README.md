@@ -1,6 +1,7 @@
 # ChameleonUltra-releases
 
 ![Last Modified](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Ftaichunmin.idv.tw%2FChameleonUltra-releases%2Fmanifest.json&query=lastModifiedAt&label=Last%20Modified)
+![gitVersion](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Ftaichunmin.idv.tw%2FChameleonUltra-releases%2Fmanifest.json&query=releases.0.gitVersion&label=gitVersion)
 
 A mirror of RfidResearchGroup/ChameleonUltra releases.
 
