@@ -8,6 +8,7 @@ import JSZip from 'jszip'
 import path from 'path'
 
 const BASEURL = getenv('BASEURL', 'https://taichunmin.idv.tw/ChameleonUltra-releases/')
+const GH_TOKEN = getenv('GH_TOKEN', '')
 const ASSET_NAME_WHITELIST = [
   'chameleon_lite_app_update.zip',
   'chameleon_ultra_app_update.zip',
@@ -27,7 +28,7 @@ async function sleep (t: number): Promise<void> {
 
 async function main (): Promise<void> {
   try {
-    const octokit = new Octokit()
+    const octokit = new Octokit(_.isNil(GH_TOKEN) ? {} : { auth: GH_TOKEN })
     const manifest: any = { releases: [], lastModifiedAt: new Date().toISOString() }
     const releases = (await octokit.request('GET /repos/{owner}/{repo}/releases', {
       headers: { 'X-GitHub-Api-Version': '2022-11-28' },
